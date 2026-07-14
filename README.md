@@ -1,18 +1,9 @@
-# 🚀 IIAP Internship Overview (2 Months)
+# IIAP Internship
 
-The goal of this **2-month internship** is to build strong foundational and practical skills in software development for fresh graduates.
+## Repository Overview
 
-By the end of the internship, interns will:
+This repository contains my daily learning, coding exercises, notes, assignments, and projects completed during the **2-Month IIAP Software Development Internship**.
 
-- 📚 Understand frontend, backend, and database concepts and how they work together.
-- 💻 Gain hands-on experience with **HTML, CSS, JavaScript, React.js, Node.js, Next.js, and PostgreSQL**.
-- 🛠️ Be able to build simple frontend interfaces, develop basic backend APIs, and perform database operations.
-- 🔄 Learn to follow basic development workflows.
-- 🧠 Improve problem-solving, logical thinking, and debugging skills.
-- 📝 Develop professional habits such as documentation, communication, and structured learning.
+The internship focuses on building a strong foundation in frontend, backend, databases, and modern web development through hands-on practice and structured learning. Each day's work is organized into a separate folder with its own `README.md` and source code.
 
----
-
-## 🎯 Focus of the Internship
-
-The focus of the internship is **gradual learning, clarity of concepts, and practical understanding**, preparing interns for **junior-level development tasks** by the end of the program.
+This repository will be updated regularly throughout the internship to track my learning progress and practical experience.
