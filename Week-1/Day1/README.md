@@ -1,72 +1,20 @@
-# Day 01 - HTML & CSS Basics
+# Day 1: HTML & CSS Basics
 
-## Internship
+## Core Concepts Learned
 
-**IIAP Internship – Month 1 | Week 1 | Day 1**
+### 1. HTML (HyperText Markup Language)
+* **Purpose:** Provides the structural foundation of a webpage.
+* **Tags & Elements:** Content is wrapped in tags (e.g., `<p>Text</p>`). The opening tag, content, and closing tag together form an HTML Element.
+* **Boilerplate:** The mandatory structure of an HTML document, including `<!DOCTYPE html>`, `<html>`, `<head>` (for metadata and links), and `<body>` (for visible content).
 
-## Topics Covered
+### 2. CSS (Cascading Style Sheets)
+* **Purpose:** Handles the visual presentation, layout, and design of the HTML structure.
+* **Inline CSS:** Styles applied directly within an HTML tag using the `style` attribute (e.g., `<p style="color: red;">`). Useful for quick tests but not scalable.
+* **External CSS:** Styles written in a separate `.css` file. This is the industry standard as it separates content from design and allows for styling multiple pages from a single file.
 
-- What is HTML?
-- HTML Tags & Elements
-- What is CSS?
-- Inline CSS vs External CSS
-- HTML Boilerplate
-- Linking CSS to HTML
-- Hands-on Project
+### 3. Linking Files
+* External CSS is connected to an HTML file using the `<link>` element placed inside the `<head>` section:
+    `<link rel="stylesheet" href="style.css">`
 
-## What I Learned
-
-Today I learned the basics of web development using HTML and CSS.
-
-- HTML is used to create the structure of a webpage.
-- CSS is used to style and design the webpage.
-- HTML tags and elements are the building blocks of a webpage.
-- External CSS is the recommended way to style websites because it is reusable and easier to maintain.
-- Every HTML page starts with a standard boilerplate structure.
-- CSS files can be linked to HTML using the `<link>` tag.
-
-## Files Created
-
-```
-Day-01/
-│── index.html
-│── style.css
-└── README.md
-```
-
-## Mini Project
-
-Built a simple webpage that:
-
-- Displays a heading
-- Displays a paragraph
-- Uses an external CSS file
-- Applies colors, fonts, and alignment
-
-## Skills Practiced
-
-- HTML Basics
-- HTML Structure
-- HTML Tags
-- CSS Basics
-- External CSS
-- File Linking
-
-## Key Takeaways
-
-- HTML provides the structure of a webpage.
-- CSS improves the appearance of the webpage.
-- Writing clean and organized code makes projects easier to maintain.
-- External CSS is the preferred approach for real-world development.
-
-## Tools Used
-
-- Visual Studio Code
-- HTML5
-- CSS3
-- Git
-- GitHub
-
-## Status
-
-✅ Day 1 Completed
+## Project
+Built a basic webpage (`index.html`) utilizing standard boilerplate, headings, paragraphs, and lists, styled using both inline CSS and an external stylesheet (`style.css`).

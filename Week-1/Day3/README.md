@@ -1,71 +1,23 @@
-# Day 03 - Lists, Tables & CSS Box Model
+# Day 3: Lists, Tables & The Box Model
 
-## Internship
+## Core Concepts Learned
 
-**IIAP Internship – Month 1 | Week 1 | Day 3**
+### 1. Lists (`<ul>`, `<ol>`, `<li>`)
+* **Unordered Lists (`<ul>`):** Used for non-sequential items (bullet points).
+* **Ordered Lists (`<ol>`):** Used for sequential items (numbered).
+* **List Items (`<li>`):** The individual elements contained within either list type.
 
-## Topics Covered
+### 2. Tables (`<table>`)
+* **Purpose:** Structuring tabular data into rows and columns.
+* **Structure:** Consists of Table Rows (`<tr>`), Table Headers (`<th>` for column titles), and Table Data cells (`<td>` for content).
+* **Styling:** CSS `border-collapse: collapse;` is commonly used to clean up the default double-borders browsers apply to tables.
 
-- Ordered Lists
-- Unordered Lists
-- HTML Tables
-- Table Headers
-- CSS Box Model
-- Margin
-- Padding
-- Borders
-- Border Radius
-- Pricing Table Project
+### 3. The CSS Box Model
+Every element in HTML is a rectangular box governed by four layers:
+1. **Content:** The actual nested text, image, or child element.
+2. **Padding:** The internal space between the content and the border. Increases the overall size of the element's background area.
+3. **Border:** The structural line surrounding the padding. Controlled via `border` (thickness, style, color) and rounded via `border-radius`.
+4. **Margin:** The external space outside the border. Used to push elements away from one another.
 
-## What I Learned
-
-Today I learned how to organize information using lists and tables. I also explored the CSS Box Model to understand how spacing and borders work around HTML elements. Finally, I built a simple pricing table using HTML and CSS.
-
-## Files Created
-
-```text
-Day-03/
-│── index.html
-│── style.css
-└── README.md
-```
-
-## Mini Project
-
-Built a pricing table that includes:
-
-- Three pricing plans
-- Table headers and rows
-- Styled borders and spacing
-- Rounded corners
-- A list of technologies
-
-## Skills Practiced
-
-- HTML Lists
-- HTML Tables
-- CSS Box Model
-- Margin & Padding
-- Borders
-- Border Radius
-- Table Styling
-
-## Key Takeaways
-
-- Use ordered lists for sequences and unordered lists for general items.
-- Tables are useful for displaying structured data.
-- The CSS Box Model consists of content, padding, border, and margin.
-- Padding adds space inside an element, while margin adds space outside.
-- Borders and border-radius improve the appearance of web elements.
-
-## Tools Used
-
-- Visual Studio Code
-- HTML5
-- CSS3
-- Git
-- GitHub
-
-## Status
-
-✅ Day 3 Completed
+## Project
+Built a structured pricing table for a SaaS application. The project utilized `<table>` for layout, nested `<ul>` tags for feature lists, and heavily relied on the CSS Box Model to create internal breathing room (padding), distinct dividers (borders), and proper spacing between elements (margins).

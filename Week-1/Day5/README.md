@@ -1,85 +1,23 @@
-# Day 05 - Static Webpage Project
+# Day 5: Building a Static Page
 
-## Internship
+## Core Concepts Learned
 
-**IIAP Internship – Month 1 | Week 1 | Day 5**
+### 1. Static Web Pages
+* **Definition:** A web page delivered to the user's browser exactly as stored. It relies entirely on client-side code (HTML/CSS) and does not require server-side rendering or a database.
+* **Use Cases:** Ideal for personal portfolios, landing pages, documentation, and read-only content.
 
-## Topics Covered
+### 2. Semantic HTML
+* **Purpose:** Replaces generic `<div>` tags with meaningful tags to improve code readability, accessibility (for screen readers), and Search Engine Optimization (SEO).
+* **Key Elements Used:**
+  * `<header>`: Contains the introductory content or navigation links.
+  * `<nav>`: Specifically designates a section of navigation links.
+  * `<main>`: Wraps the dominant content of the document.
+  * `<section>`: Defines a thematic grouping of content (e.g., an "About" or "Projects" area).
+  * `<footer>`: Defines the footer of a document or section.
 
-- Create a Static Webpage
-- Page Layout Planning
-- Navigation Bar
-- Typography
-- Spacing
-- Styling Previous Project
-- Self-Review Checklist
+### 3. Layout Integration
+* **Flexbox Grids:** Utilized `display: flex;` combined with the `gap` property to create responsive, side-by-side card layouts without relying on complex floats or absolute positioning.
+* **The `flex: 1;` Property:** Applied to child elements within a flex container to ensure they grow and shrink equally, creating symmetrical grid columns.
 
-## What I Learned
-
-Today I combined everything learned during Week 1 into a single static webpage. I planned the page layout, improved the design with better typography and spacing, added a navigation bar, and reviewed the project against a checklist to ensure it was complete and responsive.
-
-## Files Created
-
-```text
-Day-05/
-│── index.html
-│── style.css
-│── images/
-└── README.md
-```
-
-## Mini Project
-
-Built a responsive static webpage that includes:
-
-- Navigation Bar
-- Hero Section
-- About Section
-- Services List
-- Pricing Table
-- Contact Form
-- Footer
-
-## Skills Practiced
-
-- HTML5
-- CSS3
-- Flexbox
-- Responsive Design
-- Typography
-- Layout Planning
-- Forms
-- Tables
-- Lists
-- Navigation
-
-## Self-Review Checklist
-
-- ✔ Proper HTML structure
-- ✔ External CSS linked
-- ✔ Responsive layout
-- ✔ Images with alt text
-- ✔ Navigation bar
-- ✔ Styled typography
-- ✔ Clean spacing
-- ✔ Working contact form
-- ✔ Well-organized code
-
-## Key Takeaways
-
-- Planning before coding saves time.
-- Consistent styling makes websites more professional.
-- Responsive design improves usability on all devices.
-- Combining multiple HTML and CSS concepts builds a complete webpage.
-
-## Tools Used
-
-- Visual Studio Code
-- HTML5
-- CSS3
-- Git
-- GitHub
-
-## Status
-
-✅ Day 5 Completed
+## Project
+Designed and built a complete, single-page static portfolio site. The project integrates custom Google Fonts (`Inter`), semantic HTML structuring, a sticky-style Flexbox navigation bar, and a responsive "Projects" section using flex-based card UI design.
