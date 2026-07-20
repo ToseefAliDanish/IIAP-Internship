@@ -1,0 +1,225 @@
+/* Base Styles & Typography */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: hsl(210, 20%, 98%); /* HSL: Very light blue-gray */
+    color: #333333; /* Hex: Dark Gray */
+    line-height: 1.6;
+}
+
+/* Navbar (Flexbox) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px 50px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555555;
+    font-weight: 700;
+}
+
+.nav-links a:hover {
+    color: #3498db;
+}
+
+/*Hero Section (Flexbox)*/
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 50px;
+    background-color: #ffffff;
+}
+
+.hero-text {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.hero-text h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 80%;
+    height: auto; 
+    display: block;
+}
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 12px 28px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/*Features (Box Model & Lists)*/
+.features-section {
+    padding: 80px 50px;
+    text-align: center;
+}
+
+.features-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    width: 300px;
+    text-align: left;
+}
+
+.feature-card ul {
+    padding-left: 20px;
+    color: #666;
+}
+
+/*Pricing (Tables)*/
+.pricing-section {
+    background-color: #ffffff;
+    padding: 80px 50px;
+    text-align: center;
+}
+
+table {
+    margin: 40px auto 0 auto;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 700px;
+}
+
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid #dddddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/*Form (Flex Direction & Inputs)*/
+.form-section {
+    padding: 80px 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-card {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 450px;
+}
+
+.form-card h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input, select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background-color: #2ecc71; /* Green submit button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #27ae60;
+}
+
+/*Footer*/
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2c3e50;
+    color: white;
+}
+
+/*Mobile Responsiveness*/
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .hero-text {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+    .features-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-card {
+        width: 100%; 
+        max-width: 400px;
+    }
+}

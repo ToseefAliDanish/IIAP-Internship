@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF_8">
+        <meta nama = "viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnecct" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header class="navbar">
+            <div class="brand">Week One Project</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#join">Join Wait List</a></li>
+                <ul>
+            </nav>
+        </header>
+        <main>
+            <section class="hero">
+                <div class="hero-text">
+                    <h1>Never lose track of a descion meeting again</h1>
+                    <p>The ultimate meeting action item tracker. assign tasks, set deadilines, and sync with your team instantly</p>
+                    <a href="#join" class="btn-primary">Get Started</a>
+                </div>
+                <div class="hero-image">
+                    <img src="Images/1.jpg" alt="team image">
+                </div>
+            </section>
+            <section id="features" class ="features-section">
+                <h2>Why Use Our IIAP Tracker?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Organize Workflows at IIAP</h3>
+                        <ul>
+                            <li>Automate task assognment</li>
+                            <li>Deadline tracking</li>
+                            <li>Email notification</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Develeper friendly</h3>
+                        <ol>
+                            <li>Open AI API Access</li>
+                            <li>Export to MYSQL</li>
+                            <li>Custom Workflows</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+            <section id="pricing" class="pricing-section">
+                <h2>Simple Pricing</h2>
+                <table>
+                    <th>
+                        <tr>
+                            <th>Plan</th>
+                            <th>Users</th>
+                            <th>Actions</th>
+                            <th>Price</th>
+                        </tr>
+                    </th>
+                    <tbody>
+                        <tr>
+                            <td><strong>Starter</strong></td>
+                            <td>5 Everyday</td>
+                            <td>5 Actions</td>
+                            <td>Free Trial</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pro</strong></td>
+                            <td>Unlimited</td>
+                            <td>Unlimited</td>
+                            <td>$500/Month</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Premium</strong></td>
+                            <td>Unlimited</td>
+                            <td>Unlimited</td>
+                            <td>$1500/month</td>
+                        </tr>
+                    </tbody>
+                </table>   
+            </section>
+            <section id="join" class="form-section">
+                <div class="form-card">
+                <h2>Islamabad International Airport</h2>
+                <form action="#">
+                    <div class="input-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Enter Your Name" required>
+                    </div>
+                    <div class="input-group">
+                    <label for="email">IIAP Working Email</label>
+                    <input type="email" id="email" placeholder="YourName@gmail.com" required>
+                    </div>
+
+                    <div class="input-grop">
+                    <label for="role">Primary role</label>
+                    <select id="role">
+                        <option>IT Engineer</option>
+                        <option>Assistant Inspector</option>
+                        <option>Sub Inspectore</option>
+                    </select>
+                    </div>
+                    <button type="submit" class="btn-submit">Submit Application</button>
+                </form>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>Made with 💖 by Toseef Ali Danish. All Rights reserved</p>
+        </footer>
+    </body>
+</html>
