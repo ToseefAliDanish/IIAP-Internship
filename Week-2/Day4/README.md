@@ -1,20 +1,20 @@
-# Week 2 - Day 4: Functions & Form Validation
+# Week 2 - Day 4: Advanced Functions & Strict Form Validation
 
 ## Core Concepts Learned
 
-### 1. Functions
+### 1. Function Syntax Types
 
-- **Purpose:** Encapsulating blocks of code for reuse, keeping scripts DRY (Don't Repeat Yourself).
-- **Declarations vs. Expressions:** \* Declarations (`function name() {}`) are standard.
-  - Expressions (`const name = function() {}`) assign anonymous functions to variables.
-- **Parameters & Arguments:** Parameters act as placeholders in the function definition, while arguments are the actual values passed into the function when called.
-- **Return Values:** The `return` keyword stops function execution and passes a specific value back to the caller.
+- **Function Declaration:** Defined using the `function` keyword followed by a name (e.g., `function validateFullName() {}`).
+- **Function Expression:** Defined by assigning an anonymous function to a variable (e.g., `const validateEmail = function() {}`).
 
-### 2. Frontend Form Validation
+### 2. Data Flow in Functions
 
-- **Purpose:** Validating user input on the client side before sending data to a server to improve User Experience (UX) and reduce unnecessary server load.
-- **Implementation:** 1. Intercept the submit event (`event.preventDefault()`). 2. Extract values from DOM inputs. 3. Evaluate values against business logic (e.g., checking `.length`, or checking for empty strings `""`). 4. Dynamically update the DOM (`textContent`) to provide real-time user feedback.
+- **Parameters:** The variables declared inside the parentheses of a function definition that act as placeholders for incoming data (e.g., `fullNameText`).
+- **Arguments:** The actual, real data passed into the function when it is called (e.g., passing `nameInput.value` into `validateFullName(nameInput.value)`).
+- **Return Values:** The specific data passed back to the main program using the `return` keyword (e.g., returning `true` or `false`).
 
-## Project
+### 3. Strict Validation Logic
 
-Developed a "Secure Signup Form." The project strictly utilizes Day 1-4 concepts. It listens for a form submission, halts the page refresh, and routes the input values through custom helper functions (utilizing parameters and `return` statements). Conditional logic (`if/else`) evaluates the returned booleans to selectively render custom error messages or a success banner based on the user's input validity.
+- **Full Name Check:** Utilized `.trim()` and `.includes(" ")` to ensure the user inputted at least two distinct words.
+- **Email Formatting:** Evaluated strings for the presence of both `@` and `.` characters.
+- **Password Complexity (Regex):** Introduced basic Regular Expressions (`/[A-Z]/` and `/[a-z]/`) to test strings for specific character casings alongside standard `.length` integer checks.

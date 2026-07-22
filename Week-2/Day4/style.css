@@ -39,12 +39,11 @@ button {
     margin-top: 10px;
 }
 
-/* Error and Success States */
 .error-msg {
     color: #e74c3c;
     font-size: 12px;
     margin-top: 5px;
-    min-height: 15px; /* Keeps layout from jumping when text appears */
+    min-height: 15px; 
 }
 
 .success-hidden {
