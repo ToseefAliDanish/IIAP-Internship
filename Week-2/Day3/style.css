@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e9ecef;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.tracker-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 350px;
+}
+
+#display-count {
+    font-size: 48px;
+    color: #2b8a3e;
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #339af0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#history-log {
+    color: #868e96;
+    margin-top: 20px;
+    font-size: 14px;
+    word-wrap: break-word; /* Keeps long history text inside the box */
+}
+
+hr {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #dee2e6;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
