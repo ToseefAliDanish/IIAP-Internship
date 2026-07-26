@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2 Capstone: Ticket Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="dashboard-container">
+        <h1 id="greeting-text">Loading Dashboard...</h1>
+        
+        <div class="panel-grid">
+            
+            <section class="form-panel">
+                <h2>Claim a Ticket</h2>
+                <form id="claim-form">
+                    
+                    <label>Agent Name</label>
+                    <input type="text" id="agent-name" placeholder="John Doe">
+                    <span id="name-error" class="error-text"></span>
+
+                    <label>Ticket Number (1 - 5)</label>
+                    <input type="number" id="ticket-number" placeholder="e.g. 3">
+                    <span id="number-error" class="error-text"></span>
+
+                    <label>Set Priority</label>
+                    <select id="priority-level">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+
+                    <button type="submit" class="btn-primary">Claim Ticket</button>
+                    <p id="success-message" class="hidden">Ticket Claimed!</p>
+                </form>
+            </section>
+
+            <section class="board-panel">
+                <h2>Pending Tickets</h2>
+                <ul id="ticket-list">
+                    <li class="ticket-item">Ticket 1: Unassigned</li>
+                    <li class="ticket-item">Ticket 2: Unassigned</li>
+                    <li class="ticket-item">Ticket 3: Unassigned</li>
+                    <li class="ticket-item">Ticket 4: Unassigned</li>
+                    <li class="ticket-item">Ticket 5: Unassigned</li>
+                </ul>
+
+                <hr>
+                <button id="lock-btn" class="btn-secondary">Lock All Tickets</button>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

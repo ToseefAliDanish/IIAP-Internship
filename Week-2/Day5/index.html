@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5: Top 5 Task Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="board-container">
+        <h1>Top 5 Priority Board</h1>
+        
+        <form id="task-form">
+            <input type="text" id="task-input" placeholder="Enter a high-priority task...">
+            <button type="submit" id="add-btn">Add Task</button>
+            <p id="form-error" class="error-msg"></p>
+        </form>
+
+        <hr>
+
+        <ul id="task-list">
+            <li class="task-slot">Empty Slot</li>
+            <li class="task-slot">Empty Slot</li>
+            <li class="task-slot">Empty Slot</li>
+            <li class="task-slot">Empty Slot</li>
+            <li class="task-slot">Empty Slot</li>
+        </ul>
+
+        <button id="urgent-btn">Mark Board Urgent!</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #334155;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard-container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 900px;
+}
+
+h1 { color: #0f172a; margin-top: 0; text-align: center; margin-bottom: 30px; }
+h2 { font-size: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;}
+
+.panel-grid {
+    display: flex;
+    gap: 40px;
+}
+
+.form-panel, .board-panel {
+    flex: 1; /* Makes both panels take up equal 50% width */
+}
+
+/* Form Styles */
+form { display: flex; flex-direction: column; }
+label { font-weight: bold; margin-bottom: 5px; font-size: 14px; margin-top: 15px;}
+input, select { padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; }
+
+.btn-primary {
+    margin-top: 25px;
+    padding: 12px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-primary:hover { background-color: #2563eb; }
+
+/* Status Messages */
+.error-text { color: #ef4444; font-size: 12px; min-height: 15px; margin-top: 4px; }
+.hidden { display: none; }
+.visible-success { display: block; color: #10b981; font-weight: bold; text-align: center; margin-top: 15px; }
+
+/* Ticket Board Styles */
+ul { list-style: none; padding: 0; margin: 0; }
+.ticket-item {
+    background-color: #f8fafc;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border-left: 5px solid #94a3b8; /* Default Gray border */
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn-secondary {
+    width: 100%;
+    padding: 12px;
+    background-color: #475569;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* JavaScript will apply these dynamic priority colors! */
+.priority-high { border-left-color: #ef4444; background-color: #fef2f2; color: #991b1b; }
+.priority-medium { border-left-color: #f59e0b; background-color: #fffbeb; color: #92400e; }
+.priority-low { border-left-color: #10b981; background-color: #ecfdf5; color: #065f46; }
+
+.locked {
+    opacity: 0.5;
+    text-decoration: line-through;
+    border-left-color: #333;
+}
