@@ -1,0 +1,79 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f4f6;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+}
+
+/* Structural Layout */
+.app-header, .app-main, .app-footer {
+    width: 100%;
+    max-width: 450px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.app-header {
+    background-color: #1f2937;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px 12px 0 0;
+}
+
+.app-header h1 { margin: 0; font-size: 24px; }
+.app-header h2 { margin: 10px 0 0 0; color: #10b981; }
+
+.app-main { padding: 20px; }
+
+.app-footer {
+    background-color: #f9fafb;
+    text-align: center;
+    padding: 15px;
+    font-size: 12px;
+    color: #6b7280;
+    border-radius: 0 0 12px 12px;
+    margin-bottom: 40px;
+}
+
+/* Forms & Inputs */
+.input-section { margin-bottom: 25px; }
+#expense-form { display: flex; flex-direction: column; gap: 10px; }
+.input-row { display: flex; gap: 10px; }
+
+input, select {
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    flex: 1;
+}
+
+button {
+    padding: 12px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Expense List */
+ul { list-style: none; padding: 0; margin: 0; }
+.expense-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8fafc;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 4px solid #3b82f6;
+}
+
+.expense-info h3 { margin: 0 0 5px 0; font-size: 16px; }
+.category-badge { background-color: #e2e8f0; padding: 3px 8px; border-radius: 12px; font-size: 12px; }
+.expense-amount { font-weight: bold; color: #ef4444; }
