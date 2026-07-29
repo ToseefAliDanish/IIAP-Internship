@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3: Modern Arrays & Responsive UI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="app-header">
+        <h1>Smart Expense Tracker</h1>
+        <h2 id="total-balance">Total: $0.00</h2>
+    </header>
+
+    <main class="dashboard-wrapper">
+        <section class="panel input-panel">
+            <h3>Add New Expense</h3>
+            <form id="expense-form">
+                <input type="text" id="expense-name" placeholder="Expense Name" required>
+                <input type="number" id="expense-amount" placeholder="Amount" step="0.01" required>
+                <select id="expense-category">
+                    <option value="General">General</option>
+                    <option value="Food">Food</option>
+                    <option value="Software">Software</option>
+                    <option value="Transport">Transport</option>
+                </select>
+                <button type="submit" class="btn-primary">Add Expense</button>
+            </form>
+        </section>
+
+        <section class="panel list-panel">
+            <div class="filter-controls">
+                <button class="filter-btn" data-category="All">All</button>
+                <button class="filter-btn" data-category="Food">Food</button>
+                <button class="filter-btn" data-category="Software">Software</button>
+                <button class="filter-btn" data-category="Transport">Transport</button>
+            </div>
+            <ul id="expense-list"></ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
