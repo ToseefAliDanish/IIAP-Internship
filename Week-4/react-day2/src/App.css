@@ -1,0 +1,50 @@
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1e293b;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.status-card {
+  background: white;
+  padding: 40px 60px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+h2 {
+  color: #0f172a;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+/* Dynamic Classes applied via React Props */
+.btn-inactive {
+  background-color: #3b82f6; /* Blue for 'Turn ON' */
+}
+
+.btn-inactive:hover {
+  background-color: #2563eb;
+}
+
+.btn-active {
+  background-color: #ef4444; /* Red for 'Turn OFF' */
+}
+
+.btn-active:hover {
+  background-color: #dc2626;
+}

@@ -1,0 +1,97 @@
+.app-container {
+  padding: 40px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  color: #0f172a;
+  margin-bottom: 40px;
+}
+
+.card-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* --- UserCard Component Styles --- */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  width: 250px;
+  border: 1px solid #e2e8f0;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header h3 {
+  margin: 0;
+  color: #1e293b;
+  font-size: 18px;
+}
+
+.role-text {
+  color: #64748b;
+  font-size: 14px;
+  margin: 5px 0 20px 0;
+}
+
+/* Badges */
+.badge {
+  font-size: 10px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+.pro-badge {
+  background-color: #f59e0b;
+  color: white;
+}
+
+/* Status Indicators */
+.status-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.status-dot.green { background-color: #10b981; }
+.status-dot.red { background-color: #ef4444; }
+
+.status-text {
+  font-size: 13px;
+  color: #475569;
+}
+
+/* Button */
+.action-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.action-btn:hover { background-color: #2563eb; }
