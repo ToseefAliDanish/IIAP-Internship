@@ -1,0 +1,41 @@
+body { margin: 0; background-color: #f1f5f9; font-family: 'Segoe UI', sans-serif; }
+
+.app-container { display: flex; justify-content: center; padding: 40px 20px; }
+.dashboard { background: white; width: 100%; max-width: 600px; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+
+header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f1f5f9; padding-bottom: 20px; margin-bottom: 20px; }
+header h1 { margin: 0; color: #0f172a; }
+header p { margin: 0; font-weight: bold; color: #64748b; }
+
+/* Form Styles */
+.task-form { display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px; padding: 20px; background-color: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; }
+.task-form input[type="text"] { padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 16px; }
+.checkbox-label { display: flex; align-items: center; gap: 10px; font-weight: 500; color: #334155; }
+.btn-primary { padding: 12px; background-color: #3b82f6; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.2s; }
+.btn-primary:hover { background-color: #2563eb; }
+
+/* Filters */
+.filter-bar { display: flex; gap: 10px; margin-bottom: 20px; }
+.filter-bar button { flex: 1; padding: 10px; border: none; border-radius: 6px; background-color: #e2e8f0; color: #475569; font-weight: 600; cursor: pointer; }
+.filter-bar button.active { background-color: #0f172a; color: white; }
+
+/* Task Cards */
+.task-list { display: flex; flex-direction: column; gap: 15px; }
+.task-card { border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; transition: 0.3s; }
+.task-card.completed { opacity: 0.6; background-color: #f8fafc; }
+.task-card.completed h3 { text-decoration: line-through; color: #94a3b8; }
+
+.task-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+.title-group h3 { margin: 0 0 10px 0; color: #1e293b; }
+.badge { font-size: 11px; font-weight: bold; padding: 4px 8px; border-radius: 12px; margin-right: 8px; }
+.urgent-badge { background-color: #fee2e2; color: #ef4444; }
+.category-badge { background-color: #e0e7ff; color: #4f46e5; }
+
+.btn-delete { background: none; border: none; font-size: 18px; color: #94a3b8; cursor: pointer; }
+.btn-delete:hover { color: #ef4444; }
+
+.task-actions button { padding: 8px 16px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
+.btn-complete { background-color: #10b981; color: white; }
+.btn-undo { background-color: #f59e0b; color: white; }
+
+.empty-state { text-align: center; color: #94a3b8; font-style: italic; margin-top: 20px; }
