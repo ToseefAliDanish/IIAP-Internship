@@ -1,16 +1,20 @@
-# React + Vite
+# Week 5 - Day 4: Architecture & Refactoring
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Core Concepts Implemented
 
-Currently, two official plugins are available:
+### 1. Separation of Concerns (File Structure)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Concept:** Isolating logic by domain to ensure long-term maintainability and code readability.
+- **Implementation:** Transitioned from a monolithic component model to a structured `src` tree. Separated pure JavaScript helper functions into a `utils/` directory and partitioned UI rendering into smaller, discrete files within the `components/` directory.
 
-## React Compiler
+### 2. Utility Extraction
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Concept:** Removing logic from React components that does not strictly require the React lifecycle or Virtual DOM.
+- **Implementation:** Extracted string validation and Regex pattern matching into `validators.js`. These are exported as pure functions, imported into `TicketForm.jsx`, and executed during the validation cycle, drastically reducing UI component bloat.
 
-## Expanding the Oxlint configuration
+### 3. Deep Component Composition
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- **Concept:** Ensuring the Master Parent (`App.jsx`) delegates UI rendering entirely to Child components.
+- **Implementation:** \* Extracted the array mapping logic out of `App.jsx` and created `<TicketList />`.
+  - Extracted the individual `<li>` rendering logic out of the mapping function and created `<TicketCard />`.
+  - `App.jsx` now strictly orchestrates data flow, passing `onAddTicket` (upward action) to the Form, and `tickets` (downward data) to the List.

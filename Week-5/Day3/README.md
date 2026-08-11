@@ -1,16 +1,20 @@
-# React + Vite
+# Week 5 - Day 3: Form Validation & Error State
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Core Concepts Implemented
 
-Currently, two official plugins are available:
+### 1. Dedicated Error State Management
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Concept:** Isolating validation feedback into its own state object, independent of the primary form data.
+- **Implementation:** Introduced `const [errors, setErrors] = useState({})`. This allows the application to track multiple field errors simultaneously (e.g., `{ title: "Required", email: "Invalid format" }`) and trigger targeted re-renders without affecting the user's typed input.
 
-## React Compiler
+### 2. Custom Submission Validation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Concept:** Intercepting the submit cycle to evaluate data integrity before allowing state mutations to propagate upward.
+- **Implementation:** \* Added the `noValidate` attribute to the HTML `<form>` to suppress generic browser tooltips.
+  - Authored a `validateForm()` routine that executes prior to `onAddTicket`. It utilizes `.trim()` for empty-field checking and Regular Expressions (`/\S+@\S+\.\S+/`) for email pattern validation, returning a boolean to halt or proceed with submission.
 
-## Expanding the Oxlint configuration
+### 3. Conditional Error UI
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- **Concept:** Dynamically rendering UI elements strictly when validation errors are present.
+- **Implementation:** \* Applied conditional CSS class injection (`className={errors.title ? "input-error" : ""}`) to alter input borders.
+  - Utilized the Logical AND operator (`{errors.title && <p>...}</p>}`) to render animated, localized error messages directly beneath the offending input fields.
