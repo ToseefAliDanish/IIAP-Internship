@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pakistan Airports Authority | Flight E-Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-content">
+            <span class="logo-text">PAA | E-Services Portal</span>
+            <a href="https://paa.gov.pk/">Go to paa.gov.pk</a>
+        </div>
+    </nav>
+
+    <div class="dashboard">
+        <header>
+            <div class="header-titles">
+                <h1>Pakistan Airports Authority</h1>
+                <p>IIAP Live Flight Tracking & Schedule Dashboard</p>
+            </div>
+            
+            <div class="filters">
+                <button onclick="fetchFlights('')">All Flights</button>
+                <button onclick="fetchFlights('?type=domestic')">Domestic</button>
+                <button onclick="fetchFlights('?type=international')">International</button>
+            </div>
+        </header>
+        
+        <div id="flight-container" class="grid"></div>
+    </div>
+
+    <script>
+        const fetchFlights = async (query = '') => {
+            const res = await fetch(`/api/flights${query}`);
+            const json = await res.json(); 
+            
+            const container = document.getElementById('flight-container');
+            
+            if(json.data.length === 0) {
+                container.innerHTML = `<p style="text-align:center; grid-column: 1/-1;">No flights found.</p>`;
+                return;
+            }
+
+            container.innerHTML = json.data.map(flight => {
+                
+                let statusClass = 'status-green';
+                if (flight.status.toLowerCase() === 'delayed') statusClass = 'status-red';
+                if (flight.status.toLowerCase() === 'boarding') statusClass = 'status-yellow';
+
+                return `
+                <div class="card">
+                    <div class="card-header">
+                        <h2>${flight.flightNo}</h2>
+                        <span class="badge ${flight.type}">${flight.type}</span>
+                    </div>
+                    <div class="destination">To: <strong>${flight.destination}</strong></div>
+                    <div class="status-indicator ${statusClass}">${flight.status}</div>
+                </div>
+            `}).join('');
+        };
+
+        fetchFlights();
+    </script>
+</body>
+</html>

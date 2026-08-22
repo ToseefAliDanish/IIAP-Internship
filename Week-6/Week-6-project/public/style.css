@@ -1,0 +1,162 @@
+:root {
+    --paa-green: #00563F;
+    --paa-light-green: #E8F5E9;
+    --paa-dark: #1E293B;
+    --paa-gray: #F1F5F9;
+    --paa-white: #FFFFFF;
+    --text-main: #334155;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--paa-gray);
+    color: var(--text-main);
+}
+
+.top-nav {
+    background-color: var(--paa-green);
+    color: var(--paa-white);
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-content a {
+    color: var(--paa-white);
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+.nav-content a:hover {
+    text-decoration: underline;
+    opacity: 1;
+}
+
+.dashboard {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+header {
+    background: var(--paa-white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    border-top: 5px solid var(--paa-green);
+    text-align: center;
+}
+
+.header-titles h1 {
+    color: var(--paa-green);
+    margin: 0 0 10px 0;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.header-titles p {
+    margin: 0;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.filters {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+button {
+    background-color: var(--paa-light-green);
+    border: 1px solid var(--paa-green);
+    color: var(--paa-green);
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background-color: var(--paa-green);
+    color: var(--paa-white);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--paa-white);
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 4px solid var(--paa-green);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 10px;
+}
+
+.card-header h2 {
+    color: var(--paa-dark);
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.destination {
+    font-size: 1.1rem;
+    color: #475569;
+    margin-bottom: 20px;
+}
+
+.badge {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 12px;
+}
+
+.badge.domestic { background-color: var(--paa-light-green); color: var(--paa-green); }
+.badge.international { background-color: #E0F2FE; color: #0369A1; }
+
+.status-indicator {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.status-green { background-color: #D1FAE5; color: #065F46; } /* On Time */
+.status-red { background-color: #FEE2E2; color: #991B1B; } /* Delayed */
+.status-yellow { background-color: #FEF3C7; color: #92400E; } /* Boarding */
