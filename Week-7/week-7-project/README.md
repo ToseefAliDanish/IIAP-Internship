@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Week 7 Master Project: TechHire Pro Full-Stack Next.js
 
-## Getting Started
+## Architecture Overview
 
-First, run the development server:
+This application serves as the capstone for Week 7, demonstrating a fully unified Full-Stack architecture using Next.js 15 App Router.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Core Architecture Achieved
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### 1. Full-Stack File-Based Routing
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Server-Side API (`route.js`):** Engineered RESTful API endpoints (`/api/jobs` and `/api/jobs/[id]`) operating purely in the Node.js backend environment to handle database interactions.
+- **Client-Side UI (`page.js`):** Engineered React interfaces (`/jobs`) that execute in the browser using the `"use client"` directive, allowing for state management (`useState`) and side-effects (`useEffect`).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+#### 2. Advanced Next.js 15 Dynamics
 
-## Learn More
+- **Asynchronous Parameters:** Successfully adapted to the Next.js 15 breaking changes by utilizing `await params` in dynamic route endpoints, preventing build-time and runtime hydration errors.
+- **Middleware Interception:** Implemented a global `middleware.js` file at the root level configured with a custom `matcher`, successfully capturing, logging, and forwarding raw HTTP request metadata before routing execution.
 
-To learn more about Next.js, take a look at the following resources:
+#### 3. Cross-Boundary Communication
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Client-to-Server Fetching:** Replaced terminal-based cURL/Console API testing by building a fully interactive React UI. The React application natively consumes the Next.js backend via asynchronous `fetch()` calls, parsing the resulting standardized JSON envelope (`{ success, data }`) and triggering React DOM re-renders via State lifting.
+- **Try/Catch Resilience:** Secured backend `POST` and `DELETE` operations using asynchronous `try/catch` guardrails, ensuring that UI interactions never trigger unhandled Promise rejections or 500 fatal server crashes.
