@@ -1,10 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Request, Response } from "express";
 
-// ==========================================
-// 1. SHARED TYPES (Days 1 & 2: Primitives, Enums, Literals, Unions, Intersections)
-// ==========================================
-
 export enum Urgency {
   Low = "LOW",
   Critical = "CRITICAL",
@@ -13,7 +9,6 @@ export enum Urgency {
 export type TicketID = string; // Type Alias
 export type CoordinateTuple = [number, number]; // Tuple (Lat, Lng)
 
-// Base Interface with Readonly and Optional properties
 export interface BaseIssue {
   readonly id: TicketID;
   reportedBy: string;
@@ -21,7 +16,6 @@ export interface BaseIssue {
   resolvedAt?: Date; 
 }
 
-// Intersections & Discriminated Unions
 export type ITIssue = BaseIssue & {
   type: "IT_ISSUE";
   deviceIp: string;
@@ -32,15 +26,9 @@ export type FacilityIssue = BaseIssue & {
   locationCoords: CoordinateTuple;
 };
 
-// The Union that the whole app will use
 export type IIAPIssue = ITIssue | FacilityIssue;
 
 
-// ==========================================
-// 2. BACKEND: DATABASE & EXPRESS (Days 3 & 4: Generics, Utility Types, Async)
-// ==========================================
-
-// Utility Type: The frontend doesn't send the ID; the DB generates it.
 export type CreateIssueDTO = Omit<ITIssue, "id" | "type">;
 
 // Generic Database Response
@@ -77,11 +65,6 @@ export const createIssueController = async (
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };
-
-
-// ==========================================
-// 3. FRONTEND: REACT COMPONENT (Days 2 & 4: Props, Hooks, Events, Narrowing)
-// ==========================================
 
 interface DashboardProps {
   systemName: string;
