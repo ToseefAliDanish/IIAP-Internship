@@ -1,0 +1,13 @@
+CREATE TABLE departments (id SERIAL PRIMARY KEY, name VARCHAR(80) NOT NULL UNIQUE);
+CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(80) NOT NULL, department_id INT NOT NULL REFERENCES departments(id));
+CREATE TABLE assets (id SERIAL PRIMARY KEY, name VARCHAR(80) NOT NULL, department_id INT NOT NULL REFERENCES departments(id));
+CREATE TABLE work_orders (id SERIAL PRIMARY KEY, title VARCHAR(120) NOT NULL, asset_id INT NOT NULL REFERENCES assets(id), status VARCHAR(20) NOT NULL DEFAULT 'open');
+CREATE TABLE work_order_users (work_order_id INT REFERENCES work_orders(id), user_id INT REFERENCES users(id), PRIMARY KEY(work_order_id,user_id));
+CREATE TABLE user_profiles (user_id INT PRIMARY KEY REFERENCES users(id), phone VARCHAR(30));
+INSERT INTO departments(name) VALUES ('IT'),('HR');
+INSERT INTO users(name,department_id) VALUES ('Ali',1),('Sara',2);
+INSERT INTO assets(name,department_id) VALUES ('Laptop',1),('Printer',2);
+INSERT INTO work_orders(title,asset_id) VALUES ('Fix laptop',1),('Repair printer',2);
+INSERT INTO work_order_users VALUES (1,1),(1,2);
+INSERT INTO user_profiles VALUES (1,'03000000000');
+SELECT * FROM work_orders;

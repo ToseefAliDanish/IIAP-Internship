@@ -1,0 +1,13 @@
+SELECT d.name,COUNT(w.id) AS open_orders FROM "Department" d LEFT JOIN "Asset" a ON a."departmentId"=d.id LEFT JOIN "WorkOrder" w ON w."assetId"=a.id AND w.status='open' GROUP BY d.id,d.name HAVING COUNT(w.id)>=0;
+SELECT u.name,w.title FROM "User" u INNER JOIN "Assignment" x ON x."userId"=u.id INNER JOIN "WorkOrder" w ON w.id=x."workOrderId";
+SELECT d.name,a.name FROM "Asset" a RIGHT JOIN "Department" d ON d.id=a."departmentId";
+SELECT COUNT(*) AS tasks,AVG(EXTRACT(EPOCH FROM ("updatedAt"-"createdAt"))/3600) FILTER (WHERE status='done') AS avg_hours_to_done FROM "WorkOrder";
+SELECT * FROM "WorkOrder" WHERE "assetId" IN (SELECT id FROM "Asset" WHERE "deletedAt" IS NULL);
+WITH totals AS (SELECT status,COUNT(*) AS amount FROM "WorkOrder" GROUP BY status) SELECT * FROM totals;
+CREATE OR REPLACE VIEW work_order_summary AS SELECT status,COUNT(*) AS total FROM "WorkOrder" GROUP BY status;
+SELECT * FROM work_order_summary;
+EXPLAIN ANALYZE SELECT * FROM "WorkOrder" WHERE status='open';
+SELECT indexname FROM pg_indexes WHERE tablename='WorkOrder';
+BEGIN;
+UPDATE "WorkOrder" SET status='done' WHERE id=1;
+ROLLBACK;

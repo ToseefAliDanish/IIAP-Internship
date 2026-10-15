@@ -1,0 +1,13 @@
+CREATE TABLE departments(id INT PRIMARY KEY, name TEXT NOT NULL);
+CREATE TABLE work_orders(id INT PRIMARY KEY, department_id INT REFERENCES departments(id), status TEXT, opened_at TIMESTAMP, completed_at TIMESTAMP);
+INSERT INTO departments VALUES (1,'IT'),(2,'HR'),(3,'Finance');
+INSERT INTO work_orders VALUES (1,1,'open',NOW()-INTERVAL '3 days',NULL),(2,1,'done',NOW()-INTERVAL '5 days',NOW()-INTERVAL '2 days'),(3,2,'done',NOW()-INTERVAL '2 days',NOW()-INTERVAL '1 day');
+SELECT w.id,d.name FROM work_orders w INNER JOIN departments d ON d.id=w.department_id;
+SELECT d.name,w.id FROM departments d LEFT JOIN work_orders w ON w.department_id=d.id;
+SELECT d.name,w.id FROM work_orders w RIGHT JOIN departments d ON d.id=w.department_id;
+SELECT d.name,COUNT(w.id) AS open_count FROM departments d LEFT JOIN work_orders w ON w.department_id=d.id AND w.status='open' GROUP BY d.id,d.name HAVING COUNT(w.id)>=0;
+SELECT AVG(completed_at-opened_at) AS average_completion_time FROM work_orders WHERE status='done';
+SELECT * FROM work_orders WHERE department_id IN (SELECT id FROM departments WHERE name='IT');
+WITH totals AS (SELECT department_id,COUNT(*) AS total FROM work_orders GROUP BY department_id) SELECT d.name,t.total FROM totals t JOIN departments d ON d.id=t.department_id;
+CREATE VIEW department_report AS SELECT d.name,COUNT(w.id) AS work_orders FROM departments d LEFT JOIN work_orders w ON w.department_id=d.id GROUP BY d.id,d.name;
+SELECT * FROM department_report;

@@ -1,0 +1,14 @@
+CREATE TABLE departments(id SERIAL PRIMARY KEY,name TEXT UNIQUE NOT NULL);
+CREATE TABLE work_orders(id SERIAL PRIMARY KEY,department_id INT REFERENCES departments(id) ON DELETE RESTRICT,status TEXT NOT NULL CHECK(status IN ('open','done')),code TEXT UNIQUE NOT NULL);
+INSERT INTO departments(name) VALUES ('IT');
+INSERT INTO work_orders(department_id,status,code) SELECT 1,CASE WHEN n%2=0 THEN 'open' ELSE 'done' END,'WO-'||n FROM generate_series(1,20000) n;
+EXPLAIN ANALYZE SELECT * FROM work_orders WHERE status='open';
+CREATE INDEX idx_work_orders_status ON work_orders(status);
+EXPLAIN ANALYZE SELECT * FROM work_orders WHERE status='open';
+EXPLAIN ANALYZE SELECT * FROM work_orders WHERE status='open' AND id<50;
+BEGIN;
+UPDATE work_orders SET status='done' WHERE id=1;
+SELECT status FROM work_orders WHERE id=1;
+ROLLBACK;
+SELECT status FROM work_orders WHERE id=1;
+SELECT COUNT(*) FROM work_orders;

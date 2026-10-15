@@ -1,0 +1,8 @@
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql" url = env("DATABASE_URL") }
+model Department { id Int @id @default(autoincrement()) name String @unique users User[] assets Asset[] }
+model User { id Int @id @default(autoincrement()) name String departmentId Int department Department @relation(fields:[departmentId],references:[id]) profile Profile? assignments Assignment[] }
+model Profile { userId Int @id note String user User @relation(fields:[userId],references:[id]) }
+model Asset { id Int @id @default(autoincrement()) name String departmentId Int department Department @relation(fields:[departmentId],references:[id]) orders WorkOrder[] deletedAt DateTime? createdAt DateTime @default(now()) updatedAt DateTime @updatedAt createdBy String @default("admin") @@index([name]) }
+model WorkOrder { id Int @id @default(autoincrement()) title String status String @default("open") assetId Int asset Asset @relation(fields:[assetId],references:[id]) assignments Assignment[] createdAt DateTime @default(now()) updatedAt DateTime @updatedAt @@index([status]) }
+model Assignment { userId Int workOrderId Int user User @relation(fields:[userId],references:[id]) workOrder WorkOrder @relation(fields:[workOrderId],references:[id]) @@id([userId,workOrderId]) }
