@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day 1 Authentication</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Welcome Back</h1>
+    <p>Login or create your account</p>
+
+    <div id="registerForm">
+        <h2>Create Account</h2>
+
+        <input id="name" placeholder="Full Name">
+        <input id="regEmail" type="email" placeholder="Email">
+        <input id="regPassword" type="password"
+               placeholder="Password">
+
+        <button onclick="register()">Register</button>
+    </div>
+
+    <hr>
+
+    <div id="loginForm">
+        <h2>Login</h2>
+
+        <input id="loginEmail" type="email" placeholder="Email">
+        <input id="loginPassword" type="password"
+               placeholder="Password">
+
+        <button onclick="login()">Login</button>
+    </div>
+
+    <h3 id="message"></h3>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
