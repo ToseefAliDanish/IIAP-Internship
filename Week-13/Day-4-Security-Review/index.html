@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Security Review Center</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080d18;
+    color: #e5e7eb;
+}
+
+header {
+    padding: 25px 6%;
+    background: #111a2b;
+    border-bottom: 1px solid #26334a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+header h2 {
+    color: #a5b4fc;
+}
+
+header span {
+    color: #22c55e;
+    font-size: 13px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 45px auto;
+    padding: 0 20px;
+}
+
+.hero {
+    margin-bottom: 35px;
+}
+
+.hero h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 18px;
+    margin-bottom: 35px;
+}
+
+.stat {
+    background: #111a2b;
+    border: 1px solid #26334a;
+    padding: 24px;
+    border-radius: 13px;
+}
+
+.stat h3 {
+    color: #94a3b8;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.stat strong {
+    font-size: 29px;
+}
+
+.progress {
+    height: 9px;
+    background: #26334a;
+    border-radius: 20px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.progress div {
+    height: 100%;
+    width: 0%;
+    background: #6366f1;
+    transition: width .3s;
+}
+
+.section-title {
+    margin-bottom: 18px;
+}
+
+.checklist {
+    display: grid;
+    gap: 13px;
+}
+
+.item {
+    background: #111a2b;
+    border: 1px solid #26334a;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    transition: .2s;
+}
+
+.item:hover {
+    border-color: #6366f1;
+    transform: translateY(-2px);
+}
+
+.item input {
+    width: 19px;
+    height: 19px;
+    accent-color: #6366f1;
+    cursor: pointer;
+    margin-top: 3px;
+}
+
+.item h3 {
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.item p {
+    color: #94a3b8;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.item.done {
+    border-color: #166534;
+}
+
+.item.done h3 {
+    color: #4ade80;
+}
+
+footer {
+    text-align: center;
+    padding: 35px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+@media(max-width: 600px) {
+    .hero h1 {
+        font-size: 25px;
+    }
+
+    header {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>SECURITY CENTER</h2>
+    <span>● APPLICATION REVIEW</span>
+</header>
+
+<div class="container">
+
+    <section class="hero">
+        <h1>Security Review Dashboard</h1>
+        <p>
+            Review your application's security controls,
+            identify weaknesses and track improvements.
+        </p>
+    </section>
+
+    <section class="stats">
+
+        <div class="stat">
+            <h3>Security Score</h3>
+            <strong id="score">0%</strong>
+            <div class="progress">
+                <div id="bar"></div>
+            </div>
+        </div>
+
+        <div class="stat">
+            <h3>Total Checks</h3>
+            <strong id="total">0</strong>
+        </div>
+
+        <div class="stat">
+            <h3>Completed</h3>
+            <strong id="completed">0</strong>
+        </div>
+
+        <div class="stat">
+            <h3>Pending</h3>
+            <strong id="pending">0</strong>
+        </div>
+
+    </section>
+
+    <h2 class="section-title">Security Checklist</h2>
+
+    <section class="checklist" id="checklist">
+
+        <label class="item">
+            <input type="checkbox">
+            <div>
+                <h3>Input Validation</h3>
+                <p>Validate incoming API data using Zod on every endpoint.</p>
+            </div>
+        </label>
+
+        <label class="item">
+            <input type="checkbox">
+            <div>
+                <h3>XSS Protection</h3>
+                <p>Use textContent instead of unsafe innerHTML for untrusted input.</p>
+            </div>
+        </label>
+
+        <label class="item">
+            <input type="checkbox">
+            <div>
+                <h3>CSRF Protection</h3>
+                <p>Use CSRF tokens and properly configured authentication cookies.</p>
+            </div>
+        </label>
+
+        <label class="item">
+            <input type="checkbox">
+            <div>
+                <h3>SQL Injection Protection</h3>
+                <p>Use parameterized queries instead of joining user input into SQL.</p>
+            </div>
+        </label>
+
+        <label class="item">
+            <input type="checkbox">
+            <div>
+                <h3>Rate Limiting</h3>
+                <p>Limit repeated login attempts and excessive API requests.</p>
+            </div>
+        </label>
+
+        <label class="item">
+            <input type="checkbox">
+            <div>
+                <h3>Password Security</h3>
+                <p>Hash passwords using a suitable password hashing algorithm.</p>
+            </div>
+        </label>
+
+        <label class="item">
+            <input type="checkbox">
+            <div>
+                <h3>Security Headers</h3>
+                <p>Configure CSP, HSTS and other appropriate security headers.</p>
+            </div>
+        </label>
+
+        <label class="item">
+            <input type="checkbox">
+            <div>
+                <h3>Authentication & Authorization</h3>
+                <p>Verify authentication and permissions on every protected API.</p>
+            </div>
+        </label>
+
+        <label class="item">
+            <input type="checkbox">
+            <div>
+                <h3>Session Security</h3>
+                <p>Use secure session storage and properly configured cookies.</p>
+            </div>
+        </label>
+
+        <label class="item">
+            <input type="checkbox">
+            <div>
+                <h3>Error Handling</h3>
+                <p>Avoid exposing passwords, database details or stack traces in API responses.</p>
+            </div>
+        </label>
+
+    </section>
+
+</div>
+
+<footer>
+    Application Security Review | Day 4
+</footer>
+
+<script>
+
+const checks = document.querySelectorAll(
+    "#checklist input"
+);
+
+function updateDashboard() {
+
+    const total = checks.length;
+
+    const completed = [...checks].filter(
+        item => item.checked
+    ).length;
+
+    const pending = total - completed;
+
+    const score = Math.round(
+        (completed / total) * 100
+    );
+
+    document.getElementById("total").textContent = total;
+
+    document.getElementById("completed").textContent =
+        completed;
+
+    document.getElementById("pending").textContent =
+        pending;
+
+    document.getElementById("score").textContent =
+        score + "%";
+
+    document.getElementById("bar").style.width =
+        score + "%";
+
+    checks.forEach(item => {
+
+        item.closest(".item").classList.toggle(
+            "done",
+            item.checked
+        );
+
+    });
+
+}
+
+checks.forEach(item => {
+    item.addEventListener("change", updateDashboard);
+});
+
+updateDashboard();
+
+</script>
+
+</body>
+</html>

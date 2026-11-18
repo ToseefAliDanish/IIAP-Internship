@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Access Control Dashboard</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b1120;
+    color: #e5e7eb;
+}
+
+.login {
+    max-width: 380px;
+    margin: 100px auto;
+    padding: 35px;
+    background: #151f33;
+    border: 1px solid #26354f;
+    border-radius: 16px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+p {
+    color: #94a3b8;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 14px;
+    background: #0b1120;
+    border: 1px solid #334155;
+    color: white;
+    border-radius: 8px;
+}
+
+button {
+    padding: 12px 18px;
+    background: #6366f1;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+button:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
+}
+
+#dashboard {
+    display: none;
+}
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 230px;
+    background: #111b2e;
+    padding: 30px 20px;
+}
+
+.sidebar h2 {
+    color: #818cf8;
+    font-size: 21px;
+}
+
+.sidebar button {
+    width: 100%;
+    margin-top: 30px;
+}
+
+main {
+    flex: 1;
+    padding: 35px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.badge {
+    background: #312e81;
+    color: #c7d2fe;
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #151f33;
+    border: 1px solid #26354f;
+    padding: 25px;
+    border-radius: 14px;
+    transition: .2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #6366f1;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+}
+
+.card button {
+    margin-top: 15px;
+}
+
+#message {
+    margin-top: 20px;
+    color: #a5b4fc;
+}
+
+@media(max-width: 650px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    main {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="login" id="login">
+    <h2>IT Operations</h2>
+    <p>Secure Access Management Portal</p>
+
+    <input id="username" placeholder="Username">
+    <input id="password" type="password" placeholder="Password">
+
+    <button onclick="login()" style="width:100%">
+        Sign In
+    </button>
+
+    <p id="error" style="margin-top:15px"></p>
+</section>
+
+<section id="dashboard">
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <h2>IT OPERATIONS</h2>
+        <p style="margin-top:10px">Access Management</p>
+
+        <button onclick="logout()">Logout</button>
+    </aside>
+
+    <main>
+
+        <div class="topbar">
+            <div>
+                <h2>Dashboard</h2>
+                <p>Welcome to your operations workspace.</p>
+            </div>
+
+            <span class="badge" id="role"></span>
+        </div>
+
+        <h3 style="margin-bottom:20px">Available Modules</h3>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Dashboard</h3>
+                <p>View operations overview.</p>
+            </div>
+
+            <div class="card" id="users">
+                <h3>User Management</h3>
+                <p>Manage system users.</p>
+                <button>Manage Users</button>
+            </div>
+
+            <div class="card" id="assign">
+                <h3>Task Assignment</h3>
+                <p>Assign tasks to technicians.</p>
+                <button onclick="assignTask()">Assign Task</button>
+            </div>
+
+            <div class="card" id="update">
+                <h3>Task Updates</h3>
+                <p>Update operational tasks.</p>
+                <button onclick="updateTask()">Update Task</button>
+            </div>
+
+            <div class="card" id="delete">
+                <h3>Task Management</h3>
+                <p>Delete existing tasks.</p>
+                <button onclick="deleteTask()">Delete Task</button>
+            </div>
+
+        </div>
+
+        <div id="message"></div>
+
+    </main>
+
+</div>
+</section>
+
+<script>
+
+let myPermissions = [];
+
+async function login() {
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({username, password})
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        document.getElementById("error").textContent = data.message;
+        return;
+    }
+
+    loadDashboard();
+}
+
+async function loadDashboard() {
+
+    const response = await fetch("/api/me");
+
+    if (!response.ok) return;
+
+    const user = await response.json();
+
+    myPermissions = user.permissions;
+
+    document.getElementById("login").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+
+    document.getElementById("role").textContent = user.role;
+
+    // UI permission checks
+    document.getElementById("users").style.display =
+        myPermissions.includes("manage_users") ? "block" : "none";
+
+    document.getElementById("assign").style.display =
+        myPermissions.includes("assign_tasks") ? "block" : "none";
+
+    document.getElementById("update").style.display =
+        myPermissions.includes("update_tasks") ? "block" : "none";
+
+    document.getElementById("delete").style.display =
+        myPermissions.includes("delete_tasks") ? "block" : "none";
+}
+
+async function assignTask() {
+    await request("/api/tasks/assign", "POST");
+}
+
+async function updateTask() {
+    await request("/api/tasks/1", "PATCH", {
+        status: "Completed"
+    });
+}
+
+async function deleteTask() {
+    await request("/api/tasks/1", "DELETE");
+}
+
+async function request(url, method, body) {
+
+    const response = await fetch(url, {
+        method,
+        headers: {"Content-Type": "application/json"},
+        body: body ? JSON.stringify(body) : undefined
+    });
+
+    const data = await response.json();
+
+    document.getElementById("message").textContent =
+        response.status + " - " + data.message;
+}
+
+async function logout() {
+
+    await fetch("/api/logout", {method: "POST"});
+
+    location.reload();
+}
+
+</script>
+
+</body>
+</html>
